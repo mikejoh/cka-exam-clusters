@@ -15,6 +15,16 @@ This repo contains some scripts to get you started with cluster number one (k8s)
 
 Enjoy.
 
+## Summary
+
+* _Heavily_ inspired by [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
+* External etcd one node cluster (!)
+* Runs on GCE (VMs)
+* As of now only the first cluster can be created
+* Lacks flannel support
+* tmux and start/stop helper scripts are provided
+* Scalable, not trivial but a good way of learning e.g. how to add more nodes to a cluster
+
 ## Get started
 
 _Pre-req_:
@@ -29,15 +39,7 @@ _Create and run the cluster_:
 3. `cd` into the cloned repo directory
 4. Run the `create_cluster.sh` script
 
-### Summary
-
-* _Heavily_ inspired by [Kubernetes The Hard Way](https://github.com/kelseyhightower/kubernetes-the-hard-way)
-* Runs on GCE (VMs)
-* As of now only the first cluster can be created
-* Lacks flannel support
-* tmux and start/stop helper scripts are provided
-
-### Todo
+#### Todo
 
 * Clean-up script
 * Initial tool setup (+gcloud configuration etc.)
