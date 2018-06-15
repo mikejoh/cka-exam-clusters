@@ -13,7 +13,9 @@ ik8s | 1 etcd, 1 master, 1 base node | loopback | Missing worker node
 
 This repo contains some scripts to get you started with cluster number one (k8s).
 
-Enjoy.
+_There's no real good structure no the scripts yet, sorry for the mess. You should start with `create_cluster.sh` though._
+
+Enjoy!
 
 ## Summary
 
@@ -42,10 +44,11 @@ _Create and run the cluster_:
 #### Todo
 
 * Clean-up script
-* Initial tool setup (+gcloud configuration etc.)
+* ~~Provide initial tool setup (kubectl and cfssl)~~
+* Provide initial gcloud setup, installation and configuration
 * Creation of GCE free tier
 * `create-cluster.sh`
-    * Check if kubelet, gcloud and cfssl binaries are present
+    * ~~Check if kubelet, gcloud and cfssl binaries are present~~
     * Add colors to the echoes
     * Refactor (ouch!)
     * Add argument to script to create different kinds of cluster (the others from the CKA exam)
@@ -56,6 +59,7 @@ _Create and run the cluster_:
 * `bootstrap*.sh`
     * Add echoes with color
     * Find a way to execute them remotely
+* The rest of the `*.sh` scripts
 
 
 
