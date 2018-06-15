@@ -10,9 +10,58 @@
 #   4. worker-1
 # 
 
-echo 
-echo "Let's do this!"
-echo
+tool_install_info() {
+    unamestr=$(uname)
+
+    if [[ "$unamestr" == 'Linux' ]]
+    then
+        echo
+        echo "kubectl:"
+        echo "  wget https://storage.googleapis.com/kubernetes-release/release/v1.10.2/bin/linux/amd64/kubectl"
+        echo "  chmod +x kubectl"
+        echo "s udo mv kubectl /usr/local/bin/"
+        echo "cfssl:"
+        echo "  wget -q --show-progress --https-only --timestamping \
+                    https://pkg.cfssl.org/R1.2/cfssl_linux-amd64 \
+                    https://pkg.cfssl.org/R1.2/cfssljson_linux-amd64"
+        echo "  chmod +x cfssl_linux-amd64 cfssljson_linux-amd64"
+        echo "  sudo mv cfssl_linux-amd64 /usr/local/bin/cfssl"
+        echo "  sudo mv cfssljson_linux-amd64 /usr/local/bin/cfssljson"
+        echo
+    elif [[ "$unamestr" == 'Darwin' ]]
+    then
+        echo
+        echo "kubectl:"
+        echo "  curl -o kubectl https://storage.googleapis.com/kubernetes-release/release/v1.10.2/bin/darwin/amd64/kubectl"
+        echo "  chmod +x kubectl"
+        echo "  sudo mv kubectl /usr/local/bin/"
+        echo "cfssl:"
+        echo "  curl -o cfssl https://pkg.cfssl.org/R1.2/cfssl_darwin-amd64
+  curl -o cfssljson https://pkg.cfssl.org/R1.2/cfssljson_darwin-amd64"
+        echo "  chmod +x cfssl cfssljson"
+        echo "  sudo mv cfssl cfssljson /usr/local/bin/"
+        echo
+        echo "Install cfssl with homebrew:"
+        echo "  brew install cfssl"
+        echo
+    fi
+}
+
+if ! hash gcloud
+then
+    echo "Missing the GCE gcloud tool..."
+    exit 1
+elif ! hash kubectl
+then
+    echo "Missing kubectl..."
+    tool_install_info
+    exit 1
+elif ! hash cfssl
+then
+    echo "Missing cfssl..."
+    tool_install_info
+    exit 1
+fi
 
 echo "Creating cluster network..."
 gcloud compute networks create k8s-cluster-network --subnet-mode custom
@@ -525,4 +574,12 @@ EOF
 echo "Copy the encryption config file to the master instance..."
 gcloud compute scp encryption-config.yaml master-0:~/
 
-echo "Finished! Now continue with bootstrapping the etcd-0 instance!"
+echo 
+echo "Finished! Here's the instances created:"
+gcloud compute instances list
+echo 
+echo "Now you need to:"
+echo "1. Bootstrap the etcd one node cluster"
+echo "2. Bootstrap the control plane"
+echo "3. Bootstrap the worker nodes"
+echo
