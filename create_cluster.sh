@@ -131,10 +131,10 @@ cat > ca-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "Kubernetes",
       "OU": "CA",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -157,10 +157,10 @@ cat > admin-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "system:masters",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -187,10 +187,10 @@ cat > ${instance}-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "system:nodes",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -224,10 +224,10 @@ cat > kube-controller-manager-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "system:kube-controller-manager",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -255,10 +255,10 @@ cat > kube-proxy-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "system:node-proxier",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -286,10 +286,10 @@ cat > kube-scheduler-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "system:kube-scheduler",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -321,10 +321,10 @@ cat > kubernetes-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "Kubernetes",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
@@ -353,10 +353,10 @@ cat > service-account-csr.json <<EOF
   "names": [
     {
       "C": "US",
-      "L": "Portland",
+      "L": "Cloudland",
       "O": "Kubernetes",
       "OU": "CKA The Hard Way",
-      "ST": "Cloud"
+      "ST": "Cloud St"
     }
   ]
 }
