@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-fe-deployment
+spec:
+  template:
+    metadata:
+      name: nginx-fe
+      labels:
+        tier: frontend
+    spec:
+      containers:
+        - name: nginx-fe
+          image: nginx
+          ports:
+            - containerPort: 80
+  selector:
+    matchLabels:
+      tier: frontend
+  replicas: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-fe-svc
+  labels:
+    tier: frontend
+spec:
+  type: LoadBalancer
+  externalIPs:
+    - 35.195.231.252
+  ports:
+  - port: 8080
+    targetPort: 80
+    protocol: TCP
+    name: http
+  selector:
+    tier: frontend
