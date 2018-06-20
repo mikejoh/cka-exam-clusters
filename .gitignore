@@ -1,7 +1,0 @@
-*.json
-*.pem
-*.yaml
-*.csr
-k8s-files
-tests
-test
