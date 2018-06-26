@@ -121,6 +121,10 @@ EOF
 ```
 ## gcloud one-liners
 
+### Create a GKE cluster
+```
+gcloud container clusters create cka-training --async --tags=cka,training --num-nodes=3 --node-version=1.10.4-gke.2 --zone europe-west1-b --addons=NetworkPolicy --enable-network-policy --cluster-version=1.10.4-gke.2 --enable-kubernetes-alpha
+```
 ### Stop all instances
 ```
 gcloud compute instances stop $(gcloud compute instances list | grep -v "NAME" | awk '{ print $1}')
