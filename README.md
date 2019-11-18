@@ -1,6 +1,6 @@
 # CKA exam cluster(s) for training!
 
-_Please note that this repository is not actively maintained!_
+##*Please note that this repository is not actively maintained anymore!*
 
 In [this](https://www.cncf.io/certification/tips) official CNCF document, with some tips for you who will try to do the CKA exam, there's a table of the clusters you will be using during the exam. See the table below.
 
